@@ -89,7 +89,6 @@ class TodoAppCRUDCreate {
     @Test
     fun testAddTaskAndPressBack() {
         onView(withId(R.id.add_task_fab)).perform(click())
-        onView(withId(R.id.nav_host_fragment)).perform(click())
         Thread.sleep(1000)
         onView(withContentDescription(testClickBack)).perform(click())
         onView(withId(R.id.no_tasks_icon)).check(matches(isDisplayed()))
@@ -98,7 +97,6 @@ class TodoAppCRUDCreate {
     @Test
     fun testAddTaskWithTitleAndPressBack() {
         onView(withId(R.id.add_task_fab)).perform(click())
-        onView(withId(R.id.nav_host_fragment)).perform(click())
         onView(withId(R.id.add_task_title_edit_text)).perform(typeText(testTitle))
         Thread.sleep(1000)
         onView(withContentDescription(testClickBack)).perform(click())
@@ -108,7 +106,6 @@ class TodoAppCRUDCreate {
     @Test
     fun testAddTaskWithDescriptionAndPressBack() {
         onView(withId(R.id.add_task_fab)).perform(click())
-        onView(withId(R.id.nav_host_fragment)).perform(click())
         onView(withId(R.id.add_task_description_edit_text)).perform(typeText(testDescription))
         Thread.sleep(1000)
         onView(withContentDescription(testClickBack)).perform(click())
@@ -118,7 +115,6 @@ class TodoAppCRUDCreate {
     @Test
     fun testAddTaskWithTitleDescriptionAndPressBack() {
         onView(withId(R.id.add_task_fab)).perform(click())
-        onView(withId(R.id.nav_host_fragment)).perform(click())
         onView(withId(R.id.add_task_title_edit_text)).perform(typeText(testTitle))
         onView(withId(R.id.add_task_title_edit_text)).perform(typeText(testDescription))
         Thread.sleep(1000)
