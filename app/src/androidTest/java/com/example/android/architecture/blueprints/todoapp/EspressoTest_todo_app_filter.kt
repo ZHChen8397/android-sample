@@ -27,6 +27,8 @@ class TodoAppBasicFilter {
     private var testFilterAll = "All"
     private var testFilterActive = "Active"
     private var testFilterCompleted = "Completed"
+    private var testNoCompleteTask = "You have no completed tasks!"
+    private var testNoActiveTask = "You have no active tasks!"
 
     private fun addTask(title: String, description: String){
         onView(withId(R.id.add_task_fab)).perform(click())
@@ -36,6 +38,20 @@ class TodoAppBasicFilter {
     }
 
     // Filter
+    @Test
+    fun testClickFilterCompleteWithNoTask(){
+        onView(withId(R.id.menu_filter)).perform(click())
+        onView(allOf(withId(R.id.title), withText(testFilterCompleted))).perform(click())
+        onView(withId(R.id.no_tasks_text)).check(matches(withText(testNoCompleteTask)))
+    }
+
+    @Test
+    fun testClickFilterActiveWithNoTask(){
+        onView(withId(R.id.menu_filter)).perform(click())
+        onView(allOf(withId(R.id.title), withText(testFilterActive))).perform(click())
+        onView(withId(R.id.no_tasks_text)).check(matches(withText(testNoActiveTask)))
+    }
+
     @Test
     fun testFilterActiveTask(){
         addTask(testCompleteTitle, testCompleteDescription)
