@@ -116,7 +116,7 @@ class TodoAppCRUDCreate {
     fun testAddTaskWithTitleDescriptionAndPressBack() {
         onView(withId(R.id.add_task_fab)).perform(click())
         onView(withId(R.id.add_task_title_edit_text)).perform(typeText(testTitle))
-        onView(withId(R.id.add_task_title_edit_text)).perform(typeText(testDescription))
+        onView(withId(R.id.add_task_description_edit_text)).perform(typeText(testDescription))
         Thread.sleep(1000)
         onView(withContentDescription(testClickBack)).perform(click())
         onView(withId(R.id.no_tasks_icon)).check(matches(isDisplayed()))
