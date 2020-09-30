@@ -128,25 +128,6 @@ class TodoAppCRUDCreate {
         onView(withId(R.id.tasks_list)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(9))
         onView(allOf(withId(R.id.tasks_list), hasDescendant(withText("Title 10")))).check(matches(isDisplayed()))
     }
-
-    @Test
-    fun testAddTaskWithSpecialSymbolThrowException(){
-        try{
-            addTask("✓ ✔ ✗ ✘ ∨ √ ˇ ☐ ☑ ", "✓ ✔ ✗ ✘ ∨ √ ˇ ☐ ☑ ")
-        }catch (e: RuntimeException){
-            print(e)
-        }
-    }
-
-    @Test
-    fun testAddTaskWithEmoThrowException(){
-        try{
-            addTask("\uD83D\uDE01", "\uD83D\uDE01")
-        }
-        catch (e: RuntimeException){
-            print(e)
-        }
-    }
     // not find way to implement
     // 1. create task to max amount
     // 2. create task title to max character
